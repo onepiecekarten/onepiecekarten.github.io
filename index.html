@@ -29,7 +29,7 @@
       padding: 40px;
       background-color: #fff;
       border-radius: 8px;
-      max-width: 800px;
+      max-width: 1200px;
       margin: 40px auto;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
@@ -41,12 +41,21 @@
     h3 {
       font-size: 1.5em;
       color: #5a5a5a;
+      margin-bottom: 15px;
+    }
+    .form-container {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 30px;
     }
     form {
       background-color: #f4e0c1;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      flex: 1 1 45%;
+      min-width: 300px;
     }
     label {
       font-size: 1.1em;
@@ -61,6 +70,7 @@
       border-radius: 8px;
       font-size: 1em;
       color: #444;
+      box-sizing: border-box;
     }
     button {
       background-color: #d9534f;
@@ -86,7 +96,7 @@
       cursor: pointer;
       text-align: center;
       display: inline-block;
-      margin-top: 20px;
+      margin-top: 30px;
     }
     .showcase-button:hover {
       background-color: #c9302c;
@@ -108,37 +118,63 @@
 </header>
 
 <main>
-  <h2>Willkommen beim One Piece Karten Ankauf!</h2>
-  <p>Wir sind an allen **One Piece TCG Karten** interessiert und bieten dir **maximal 80% des aktuellen Marktpreises** an. Wenn du Karten verkaufen möchtest, fülle einfach das Formular aus und wir melden uns so schnell wie möglich bei dir.</p>
-  <p><strong>Hinweis:</strong> Wir kaufen nur **englische Karten** an.</p>
+  <h2>Willkommen bei One Piece Karten Schweiz!</h2>
+  <p>Wir sind an allen <strong>One Piece TCG Karten</strong> interessiert und bieten dir <strong>maximal 80% des aktuellen Marktpreises</strong> an.  
+  Wenn du Karten verkaufen oder aus meinem Portfolio kaufen möchtest, wähle das passende Formular unten.</p>
+  <p><strong>Hinweis:</strong> Wir kaufen nur <strong>englische Karten</strong> an.</p>
 
-  <h3>Gib uns die Details zu den Karten:</h3>
+  <div class="form-container">
+    <!-- Formular für Ankauf -->
+    <form action="https://formspree.io/f/mldwdvlo" method="POST">
+      <h3>Karten an uns verkaufen (Ankauf)</h3>
+      <input type="hidden" name="_subject" value="Ankauf Anfrage">
 
-  <!-- Formular -->
-  <form action="https://formspree.io/f/mldwdvlo" method="POST">
-    <label for="name">Dein Name</label>
-    <input type="text" id="name" name="name" required>
+      <label for="name">Dein Name</label>
+      <input type="text" id="name" name="name" required>
 
-    <label for="email">Deine E-Mail-Adresse</label>
-    <input type="email" id="email" name="email" required>
+      <label for="email">Deine E-Mail-Adresse</label>
+      <input type="email" id="email" name="email" required>
 
-    <label for="karten">Welche Karten bietest du an? (Name, Zustand, Menge, Abkürzung)</label>
-    <textarea id="karten" name="karten" rows="4" required></textarea>
+      <label for="karten">Welche Karten bietest du an? (Name, Zustand, Menge, Abkürzung)</label>
+      <textarea id="karten" name="karten" rows="4" required></textarea>
 
-    <label for="preis">Deine Preisvorstellung (CHF)</label>
-    <input type="number" id="preis" name="preis" required>
+      <label for="preis">Deine Preisvorstellung (CHF)</label>
+      <input type="number" id="preis" name="preis" required>
 
-    <label for="nachricht">Weitere Informationen oder Fragen</label>
-    <textarea id="nachricht" name="nachricht" rows="4"></textarea>
+      <label for="nachricht">Weitere Informationen oder Fragen</label>
+      <textarea id="nachricht" name="nachricht" rows="4"></textarea>
 
-    <button type="submit">Absenden</button>
-  </form>
+      <button type="submit">Absenden</button>
+    </form>
 
-  <!-- Button, der auf die Collectr Showcase-Seite verlinkt -->
+    <!-- Formular für Verkauf -->
+    <form action="https://formspree.io/f/mldwdvlo" method="POST">
+      <h3>Karten von uns kaufen (Verkauf)</h3>
+      <input type="hidden" name="_subject" value="Verkauf Anfrage">
+
+      <label for="name-k">Dein Name</label>
+      <input type="text" id="name-k" name="name" required>
+
+      <label for="email-k">Deine E-Mail-Adresse</label>
+      <input type="email" id="email-k" name="email" required>
+
+      <label for="interesse">Welche Karte interessiert dich?</label>
+      <textarea id="interesse" name="interesse" rows="3" required></textarea>
+
+      <label for="preis-k">Deine Preisvorstellung (CHF)</label>
+      <input type="number" id="preis-k" name="preis" required>
+
+      <label for="nachricht-k">Weitere Informationen oder Fragen</label>
+      <textarea id="nachricht-k" name="nachricht" rows="4"></textarea>
+
+      <button type="submit">Absenden</button>
+    </form>
+  </div>
+
+  <!-- Showcase Button -->
   <button class="showcase-button" onclick="window.open('https://app.getcollectr.com/showcase/profile/0c35a254-ecff-450a-b030-5808cf01c47a', '_blank')">
     Zu meinem One Piece Karten Portfolio
   </button>
-
 </main>
 
 <footer>

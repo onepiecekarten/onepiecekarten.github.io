@@ -4,44 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>One Piece Karten Schweiz</title>
+
+  <!-- Google Fonts für Piraten-Stil -->
+  <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Open+Sans&display=swap" rel="stylesheet">
+
   <style>
     body {
-      font-family: 'Courier New', Courier, monospace;
+      font-family: 'Open Sans', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4e0c1;
-      color: #333;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/6/6f/Old_map_texture_by_merlin2525.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #222;
     }
     header {
-      background-color: #d9534f;
+      background: rgba(217, 83, 79, 0.9);
       color: white;
-      padding: 20px;
+      padding: 30px 20px;
       text-align: center;
-      font-size: 2.5em;
+      font-size: 3em;
       font-weight: bold;
       letter-spacing: 2px;
-      text-transform: uppercase;
+      font-family: 'Pirata One', cursive;
+      position: relative;
     }
     header p {
       font-size: 1.2em;
+      font-family: 'Open Sans', sans-serif;
+    }
+    header::after {
+      content: "";
+      background: url('https://upload.wikimedia.org/wikipedia/en/2/29/Straw_Hat_Pirates_Jolly_Roger.png') no-repeat center;
+      background-size: 120px;
+      opacity: 0.2;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      bottom: 10px;
+      width: 120px;
     }
     main {
       padding: 40px;
-      background-color: #fff;
-      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
       max-width: 1200px;
       margin: 40px auto;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
     }
     h2 {
-      font-size: 1.8em;
-      color: #d9534f;
+      font-size: 2em;
+      color: #b22222;
       margin-bottom: 20px;
+      font-family: 'Pirata One', cursive;
+      text-align: center;
     }
     h3 {
-      font-size: 1.5em;
-      color: #5a5a5a;
+      font-size: 1.6em;
+      color: #333;
       margin-bottom: 15px;
+      font-family: 'Pirata One', cursive;
     }
     .form-container {
       display: flex;
@@ -50,27 +71,31 @@
       margin-top: 30px;
     }
     form {
-      background-color: #f4e0c1;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background: #fff8e7 url('https://upload.wikimedia.org/wikipedia/commons/3/3d/Treasure_map_vector.svg') no-repeat bottom right;
+      background-size: 150px;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       flex: 1 1 45%;
       min-width: 300px;
+      border: 2px solid #d9534f;
     }
     label {
       font-size: 1.1em;
       margin-bottom: 8px;
       display: block;
+      font-weight: bold;
     }
     input, textarea {
       width: 100%;
       padding: 12px;
       margin-bottom: 20px;
-      border: 2px solid #ddd;
+      border: 2px solid #aaa;
       border-radius: 8px;
       font-size: 1em;
       color: #444;
       box-sizing: border-box;
+      background-color: #fffefc;
     }
     button {
       background-color: #d9534f;
@@ -81,32 +106,49 @@
       font-size: 1.2em;
       cursor: pointer;
       width: 100%;
-      transition: background-color 0.3s ease;
+      transition: transform 0.2s, background-color 0.3s ease;
+      font-family: 'Pirata One', cursive;
+      letter-spacing: 1px;
     }
     button:hover {
       background-color: #c9302c;
+      transform: scale(1.05);
     }
     .showcase-button {
-      background-color: #d9534f;
+      background-color: #b22222;
       color: white;
-      font-size: 1.2em;
-      padding: 10px 20px;
+      font-size: 1.3em;
+      padding: 12px 25px;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
-      text-align: center;
-      display: inline-block;
-      margin-top: 30px;
+      display: block;
+      margin: 40px auto 0;
+      font-family: 'Pirata One', cursive;
     }
     .showcase-button:hover {
-      background-color: #c9302c;
+      background-color: #8b0000;
     }
     footer {
       text-align: center;
-      padding: 10px;
+      padding: 15px;
       font-size: 0.9em;
-      background-color: #333;
+      background-color: rgba(0, 0, 0, 0.8);
       color: white;
+      margin-top: 40px;
+      position: relative;
+    }
+    footer::before {
+      content: "";
+      background: url('https://upload.wikimedia.org/wikipedia/en/2/29/Straw_Hat_Pirates_Jolly_Roger.png') no-repeat center;
+      background-size: 40px;
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.5;
+      width: 40px;
+      height: 40px;
     }
   </style>
 </head>
@@ -119,15 +161,9 @@
 
 <main>
   <h2>Willkommen bei One Piece Karten Schweiz!</h2>
-  <p>Wir sind an allen <strong>One Piece TCG Karten</strong> interessiert und bieten dir <strong>maximal 80% des aktuellen Marktpreises</strong> an.  
-  Wenn du Karten verkaufen oder aus meinem Portfolio kaufen möchtest, wähle das passende Formular unten.</p>
-  <p><strong>Hinweis:</strong> Wir kaufen nur <strong>englische Karten</strong> an.</p>
-  
-    <!-- Showcase Button -->
-  <button class="showcase-button" onclick="window.open('https://app.getcollectr.com/showcase/profile/0c35a254-ecff-450a-b030-5808cf01c47a', '_blank')">
-    Zu meinem One Piece Karten Portfolio
-  </button>
-  
+  <p style="text-align:center;">⚓ Tauche ein in die Welt von <strong>One Piece</strong> und handle deine TCG Karten wie ein echter Pirat!  
+  Wähle unten, ob du Karten <span style="color:#b22222;">verkaufen</span> oder <span style="color:#b22222;">kaufen</span> möchtest.</p>
+
   <div class="form-container">
     <!-- Formular für Ankauf -->
     <form action="https://formspree.io/f/mldwdvlo" method="POST">
@@ -149,7 +185,7 @@
       <label for="nachricht">Weitere Informationen oder Fragen</label>
       <textarea id="nachricht" name="nachricht" rows="4"></textarea>
 
-      <button type="submit">Absenden</button>
+      <button type="submit">🏴‍☠️ Absenden</button>
     </form>
 
     <!-- Formular für Verkauf -->
@@ -172,11 +208,14 @@
       <label for="nachricht-k">Weitere Informationen oder Fragen</label>
       <textarea id="nachricht-k" name="nachricht" rows="4"></textarea>
 
-      <button type="submit">Absenden</button>
+      <button type="submit">🏴‍☠️ Absenden</button>
     </form>
   </div>
 
-
+  <!-- Showcase Button -->
+  <button class="showcase-button" onclick="window.open('https://app.getcollectr.com/showcase/profile/0c35a254-ecff-450a-b030-5808cf01c47a', '_blank')">
+    🏴‍☠️ Zu meinem One Piece Karten Portfolio
+  </button>
 </main>
 
 <footer>

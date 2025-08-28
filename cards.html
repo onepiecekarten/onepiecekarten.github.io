@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>One Piece Karten Verkauf</title>
+  <style>
+    /* Beispiel für das Layout der Karten */
+    .card-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .card-item {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .card-item img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    .card-item h3 {
+      color: #d9534f;
+      font-size: 1.3em;
+      margin: 10px 0;
+    }
+    .card-item p {
+      font-size: 1em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<h1>One Piece Karten zum Verkauf</h1>
+
+<!-- Container, in dem die Karten angezeigt werden -->
+<div id="cards-container" class="card-list"></div>
+
+<script>
+  // Fetch the Collectr Showcase page and extract the data
+  fetch('https://app.getcollectr.com/showcase/profile/0c35a254-ecff-450a-b030-5808cf01c47a')
+    .then(response => response.text())
+    .then(html => {
+      // Create a temporary element to parse the HTML content
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      
+      // Extract relevant information (this will depend on the structure of the page)
+      const cards = [];
+      const cardElements = doc.querySelectorAll('.card'); // This should match the correct selector from the showcase page
+
+      cardElements.forEach(card => {
+        const name = card.querySelector('.card-name').innerText; // Replace with correct selector
+        const image = card.querySelector('img').src;
+        const condition = card.querySelector('.card-condition').innerText; // Replace with correct selector
+        const price = card.querySelector('.card-price').innerText; // Replace with correct selector
+
+        cards.push({ name, image, condition, price });
+      });
+
+      // Display the cards on your website
+      const container = document.getElementById('cards-container');
+      cards.forEach(card => {
+        const cardElement = document.createElement('div');
+        cardElement.classList.add('card-item');
+        cardElement.innerHTML = `
+          <img src="${card.image}" alt="${card.name}">
+          <h3>${card.name}</h3>
+          <p>Zustand: ${card.condition}</p>
+          <p>Preis: ${card.price}</p>
+        `;
+        container.appendChild(cardElement);
+      });
+    })
+    .catch(error => console.error('Error fetching the showcase page:', error));
+</script>
+
+</body>
+</html>

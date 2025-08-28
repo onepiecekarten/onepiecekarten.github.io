@@ -27,6 +27,30 @@
       font-size: 0.9em;
       color: #666;
     }
+    form {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #e91e63;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #d81b60;
+    }
   </style>
 </head>
 <body>
@@ -39,8 +63,32 @@
 <main>
   <h2>Willkommen!</h2>
   <p>Wir kaufen One Piece Karten von privaten Sammlern aus der Schweiz – zum fairen Preis: <strong>75 % des Marktwerts.</strong></p>
-  <p>Du willst Karten verkaufen? Dann <a href="#ankauf">kontaktiere uns</a> mit Fotos und Preisen.</p>
-  <p>Oder schau dir <a href="#verkauf">unsere Karten zum Verkauf</a> an!</p>
+
+  <h3>Du willst Karten verkaufen?</h3>
+  <p>Fülle bitte das Formular aus und lade Fotos deiner Karten hoch. Wir melden uns dann mit einem Angebot.</p>
+
+  <!-- Formular -->
+  <form action="https://formspree.io/f/mldwdvlo" method="POST">
+    <label for="name">Dein Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Deine E-Mail-Adresse</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="karten">Welche Karten bietest du an? (Name, Zustand, Menge)</label>
+    <textarea id="karten" name="karten" rows="4" required></textarea>
+
+    <label for="preis">Deine Preisvorstellung (CHF)</label>
+    <input type="number" id="preis" name="preis" required>
+
+    <label for="foto">Fotos der Karten (optional)</label>
+    <input type="file" id="foto" name="foto" accept="image/*">
+
+    <label for="nachricht">Weitere Informationen oder Fragen</label>
+    <textarea id="nachricht" name="nachricht" rows="4"></textarea>
+
+    <button type="submit">Absenden</button>
+  </form>
 </main>
 
 <footer>

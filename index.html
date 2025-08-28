@@ -6,83 +6,111 @@
   <title>One Piece Karten Schweiz</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Courier New', Courier, monospace;
       margin: 0;
       padding: 0;
-      background-color: #f5f5f5;
+      background-color: #f4e0c1;
       color: #333;
     }
     header {
-      background-color: #e91e63;
+      background-color: #d9534f;
       color: white;
       padding: 20px;
       text-align: center;
+      font-size: 2.5em;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    header p {
+      font-size: 1.2em;
     }
     main {
+      padding: 40px;
+      background-color: #fff;
+      border-radius: 8px;
+      max-width: 800px;
+      margin: 40px auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      font-size: 1.8em;
+      color: #d9534f;
+      margin-bottom: 20px;
+    }
+    h3 {
+      font-size: 1.5em;
+      color: #5a5a5a;
+    }
+    form {
+      background-color: #f4e0c1;
       padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      font-size: 1.1em;
+      margin-bottom: 8px;
+      display: block;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 1em;
+      color: #444;
+    }
+    button {
+      background-color: #d9534f;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2em;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #c9302c;
     }
     footer {
       text-align: center;
       padding: 10px;
       font-size: 0.9em;
-      color: #666;
-    }
-    form {
-      background-color: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    button {
-      background-color: #e91e63;
+      background-color: #333;
       color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #d81b60;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>One Piece Karten Schweiz</h1>
+  One Piece Karten Schweiz
   <p>Ankauf & Verkauf von One Piece TCG Karten</p>
 </header>
 
 <main>
-  <h2>Willkommen!</h2>
-  <p>Wir kaufen One Piece Karten von privaten Sammlern aus der Schweiz – zum fairen Preis: <strong>75 % des Marktwerts.</strong></p>
+  <h2>Willkommen beim One Piece Karten Ankauf!</h2>
+  <p>Wir sind an allen **One Piece TCG Karten** interessiert und bieten dir **maximal 80% des aktuellen Marktpreises** an. Wenn du Karten verkaufen möchtest, fülle einfach das Formular aus und wir melden uns so schnell wie möglich bei dir.</p>
 
-  <h3>Du willst Karten verkaufen?</h3>
-  <p>Fülle bitte das Formular aus und lade Fotos deiner Karten hoch. Wir melden uns dann mit einem Angebot.</p>
+  <h3>Gib uns die Details zu den Karten:</h3>
 
   <!-- Formular -->
-  <form action="https://formspree.io/f/mldwdvlo" method="POST">
+  <form action="https://formspree.io/f/{DEIN_FORMULAR_ID}" method="POST">
     <label for="name">Dein Name</label>
     <input type="text" id="name" name="name" required>
 
     <label for="email">Deine E-Mail-Adresse</label>
     <input type="email" id="email" name="email" required>
 
-    <label for="karten">Welche Karten bietest du an? (Name, Zustand, Menge)</label>
+    <label for="karten">Welche Karten bietest du an? (Name, Zustand, Menge, Abkürzung)</label>
     <textarea id="karten" name="karten" rows="4" required></textarea>
 
     <label for="preis">Deine Preisvorstellung (CHF)</label>
     <input type="number" id="preis" name="preis" required>
-
-    <label for="foto">Fotos der Karten (optional)</label>
-    <input type="file" id="foto" name="foto" accept="image/*">
 
     <label for="nachricht">Weitere Informationen oder Fragen</label>
     <textarea id="nachricht" name="nachricht" rows="4"></textarea>
